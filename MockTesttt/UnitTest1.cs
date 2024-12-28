@@ -55,7 +55,7 @@ namespace MockTesttt
 
             // Assert
             Assert.That(result.Count, Is.EqualTo(1));  // Verifica que solo se devuelve una reserva (simulada)
-            Assert.That(result.First().BookingId, Is.EqualTo(2));  // La reserva con BookingId = 2 (par)
+            Assert.That(result.First().BookingId, Is.EqualTo(2));  // La re33serva con BookingId = 2 (par)
 
         }
     }
