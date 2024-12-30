@@ -21,7 +21,8 @@ namespace MockTesttt
     public class Booking
     {
         public int BookingId { get; set; } //{ get; set; }: Son las funciones automáticas de getter y setter.
-                                           //Esto significa que la propiedad tiene acceso para ser leída (get) y escrita (set) directamente desde fuera de la clase. El uso de { get; set; } es una forma simplificada de crear propiedades
+        public string? Firstname { get; set; }
+        public string? Lastname { get; set; }//Esto significa que la propiedad tiene acceso para ser leída (get) y escrita (set) directamente desde fuera de la clase. El uso de { get; set; } es una forma simplificada de crear propiedades
                                            //en C# sin necesidad de implementar manualmente los métodos de acceso.
     }
 }

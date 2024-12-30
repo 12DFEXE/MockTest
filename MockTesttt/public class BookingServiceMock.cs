@@ -12,7 +12,6 @@ namespace MockTesttt
 
     {
         public static Mock<Interfaceparabooking> GetMockedService()
-
         {
             // Crear un mock de IBookingService
             var mockService = new Mock<Interfaceparabooking>();
@@ -24,22 +23,31 @@ namespace MockTesttt
                 {
                     var bookings = new List<Booking>
                     {
-                    new Booking { BookingId = 1 },
-                    new Booking { BookingId = 2 },
-                    new Booking { BookingId = 3 },
-                    new Booking { BookingId = 4 }
+                new Booking { BookingId = 1 },
+                new Booking { BookingId = 2, Firstname = "John", Lastname = "Doe" },
+                new Booking { BookingId = 3 },
+                new Booking { BookingId = 4 },
                     };
 
 
-                    // Filtrar las reservas por los parámetros opcionales
+
+
+
+                    // Filtrar las reservas por los parámetros opcionales 
+                    
+
                     if (!string.IsNullOrEmpty(firstname))
                     {
-                        bookings = bookings.Where(b => b.BookingId % 2 == 0).ToList(); // Ejemplo de filtro por firstname
+                        bookings = bookings.Where(b => b.Firstname == firstname).ToList();
                     }
+                    
+                    
+                    
+
 
                     if (!string.IsNullOrEmpty(lastname))
                     {
-                        bookings = bookings.Where(b => b.BookingId % 2 != 0).ToList(); // Ejemplo de filtro por lastname
+                        bookings = bookings.Where(b => b.Lastname == lastname).ToList();
                     }
 
                     // Puedes añadir filtros adicionales por checkin, checkout, etc.
@@ -49,6 +57,6 @@ namespace MockTesttt
 
             return mockService;
         }
-    
+
     }
 }

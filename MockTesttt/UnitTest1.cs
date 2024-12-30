@@ -13,12 +13,12 @@ namespace MockTesttt
         [Test]
         public async Task GetBookingIdsAsync_WithNoFilters_ReturnsAllBookings()
         {
-            // Arrange
-            var mockService = BookingServiceMock.GetMockedService();
-            var service = mockService.Object;
+            // Arrange 
+            var mockService = BookingServiceMock.GetMockedService();// se linkea con el Mock y a su vez el mock esta vinculado con la interface
+            var service = mockService.Object;// la var service se convierte en un objeto de la clase mockService
 
             // Act
-            var result = await service.GetBookingIdsAsync();
+            var result = await service.GetBookingIdsAsync(); //Llama de forma asíncrona al método GetBookingIdsAsync y espera su resultado, que se guarda en la variable result.
 
             // Assert
             Assert.That(result.Count, Is.EqualTo(4));  // Verifica que hay 4 reservas
@@ -39,9 +39,11 @@ namespace MockTesttt
             var result = await service.GetBookingIdsAsync(firstname: "John");
 
             // Assert
-            Assert.That(result.Count, Is.EqualTo(1)); // ara verificar que hay exactamente un elemento en la lista.
-            Assert.Equals(1, result.First().BookingId);  // La reserva con BookingId = 2 (par)
+            Assert.That(result.Count, Is.EqualTo(1)); // Espera que solo haya una reserva en la lista que tenga "John" como nombre de pila.
+            Assert.AreEqual(2, result.First().BookingId);  // Verifica que el BookingId del primer elemento sea igual a 2
         }
+
+    
 
         [Test]
         public async Task GetBookingIdsAsync_WithLastnameFilter_ReturnsFilteredBookings()
@@ -58,6 +60,22 @@ namespace MockTesttt
             Assert.That(result.First().BookingId, Is.EqualTo(2));  // La re33serva con BookingId = 2 (par)
 
         }
+
+        [Test]
+        public async Task GetBookingIdsAsync_WithFirstnameFilter_ReturnsFilteredBookingss()
+        {
+            // Arrange
+            var mockService = BookingServiceMock.GetMockedService();
+            var service = mockService.Object;
+
+            // Act
+            var result = await service.GetBookingIdsAsync(firstname: "John");
+
+            // Assert
+            Assert.That(result.Count, Is.EqualTo(1)); // ara verificar que hay exactamente un elemento en la lista.
+            Assert.Equals(2, result.First().BookingId);  // La reserva con BookingId = 2 (par)
+        }
+
     }
 
 }
