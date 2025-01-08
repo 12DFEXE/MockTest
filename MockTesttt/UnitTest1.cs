@@ -11,6 +11,7 @@ namespace MockTesttt
     public class BookingServiceTestsBookingServiceTests
     {
         [Test]
+        [Category("API")]
         public async Task GetBookingIdsAsync_WithNoFilters_ReturnsAllBookings()
         {
             // Arrange 
@@ -29,6 +30,7 @@ namespace MockTesttt
         }
 
         [Test]
+        [Category("API")]
         public async Task GetBookingIdsAsync_WithFirstnameFilter_ReturnsFilteredBookings()
         {
             // Arrange
@@ -46,6 +48,7 @@ namespace MockTesttt
     
 
         [Test]
+        [Category("API")]
         public async Task GetBookingIdsAsync_WithLastnameFilter_ReturnsFilteredBookings()
         {
             // Arrange
@@ -62,6 +65,7 @@ namespace MockTesttt
         }
 
         [Test]
+        [Category("API")]
         public async Task GetBookingIdsAsync_WithFirstnameFilter_ReturnsFilteredBookingss()
         {
             // Arrange
