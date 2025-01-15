@@ -1,0 +1,23 @@
+name: Run API Tests Manually
+
+on:
+  workflow_dispatch: # Permite ejecutar el workflow manualmente
+
+jobs:
+  run-tests:
+    runs-on: ubuntu-24.04
+
+    steps:
+    - name: Check out code
+      uses: actions/checkout@v3
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v3
+      with:
+        dotnet-version: '8.0' # Cambia a la versión de .NET que usas
+
+    - name: Install dependencies
+      run: dotnet restore
+
+    - name: Run API tests
+      run: dotnet test --filter "Category=API"
