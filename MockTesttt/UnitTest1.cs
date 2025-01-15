@@ -41,11 +41,11 @@ namespace MockTesttt
             var result = await service.GetBookingIdsAsync(firstname: "John");
 
             // Assert
-            Assert.That(result.Count, Is.EqualTo(1)); // Espera que solo haya una reserva en la lista que tenga "John" como nombre de pila.
-            Assert.AreEqual(2, result.First().BookingId);  // Verifica que el BookingId del primer elemento sea igual a 2
+            Assert.That(result.Count, Is.EqualTo(1)); // Verifica que solo haya una reserva con "John" como nombre.
+            Assert.That(result.First().BookingId, Is.EqualTo(2)); // Verifica que el BookingId del primer elemento sea igual a 2.
         }
 
-    
+
 
         [Test]
         [Category("API")]
@@ -76,9 +76,10 @@ namespace MockTesttt
             var result = await service.GetBookingIdsAsync(firstname: "John");
 
             // Assert
-            Assert.That(result.Count, Is.EqualTo(1)); // ara verificar que hay exactamente un elemento en la lista.
-            Assert.Equals(2, result.First().BookingId);  // La reserva con BookingId = 2 (par)
+            Assert.That(result.Count, Is.EqualTo(1)); // Verifica que hay exactamente un elemento
+            Assert.That(result.First().BookingId, Is.EqualTo(2)); // Verifica que el BookingId sea 2
         }
+
 
     }
 
